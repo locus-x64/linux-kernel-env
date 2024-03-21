@@ -34,3 +34,22 @@ To copy the files to the VM, you can use following command:
 ```
 
 And this will copy the file to the /home/user directory of the VM.
+
+## Intstall 3rd party tool
+By mounting the filesystem img file and then chroot into it.
+
+Mount the filesystem
+```bash
+cd img && mkdir mountpt
+sudo mount bookworm.img mountpt/
+```
+
+Chroot into the filesystem
+```bash
+cd mountpt
+sudo chroot .
+```
+Install the dependencies, utilities or library
+```bash
+apt install <pkg-name>
+```
