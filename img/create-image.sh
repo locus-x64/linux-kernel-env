@@ -4,6 +4,9 @@
 
 # create-image.sh creates a minimal Debian Linux image suitable for syzkaller.
 
+# Install required packages for ubuntu
+sudo apt-get install debootstrap
+
 set -eux
 
 # Create a minimal Debian distribution in a directory.
@@ -135,8 +138,8 @@ cat $RELEASE.id_rsa.pub | sudo tee $DIR/root/.ssh/authorized_keys
 cat $RELEASE.id_rsa.pub | sudo tee $DIR/home/user/.ssh/authorized_keys
 
 # copy in the exploit
-sudo cp ../poc/poc $DIR/root/poc
-sudo cp ../poc/poc $DIR/home/user/poc
+# sudo cp ../poc/poc $DIR/root/poc
+# sudo cp ../poc/poc $DIR/home/user/poc
 
 # Build a disk image
 dd if=/dev/zero of=$RELEASE.img bs=1M seek=$SEEK count=1
