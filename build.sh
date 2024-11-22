@@ -66,6 +66,7 @@ sed -i 's/unsigned long __force_order/\/\/ unsigned long __force_order/g' linux-
 
 make -C linux-$KERNEL_VERSION -j$(nproc) bzImage
 make -C linux-$KERNEL_VERSION -j$(nproc) modules
+make -C linux-$KERNEL_VERSION -j$(nproc) scripts_gdb
 
 #
 # Copy the bzImage to kerenl directory
